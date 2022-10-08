@@ -1,4 +1,4 @@
-# MinMaxSlider
+# Character Model Changer
 
 Made by OlympianGames - [Link](https://github.com/OlympianGames/UnityResources/tree/main/UnityScripts)
 
