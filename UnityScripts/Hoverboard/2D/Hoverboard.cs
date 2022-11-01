@@ -22,7 +22,7 @@ public class HoverboardPointData
 public class Hoverboard : MonoBehaviour
 {
     private Rigidbody2D rb;
-    [SerializeField] private List<HoverboardPointData> pointsData;
+    public List<HoverboardPointData> pointsData;
     [SerializeField] private GizmosSettings gizmosSettings;
     [SerializeField] private RaycastSettings raycastSettings;
     [SerializeField] private ForceSettings forceSettings;
@@ -55,8 +55,11 @@ public class Hoverboard : MonoBehaviour
     private void Update()
     {
         DrawRaycasts();
+    }
+
+    private void FixedUpdate() 
+    {
         AddForces();
-        
     }
 
     private void DrawRaycasts()
@@ -75,12 +78,17 @@ public class Hoverboard : MonoBehaviour
     {
         foreach (var point in pointsData)
         {
-            point.distance = Mathf.Abs(raycastSettings.maxDistance - (Vector2.Distance(point.raycastPosition, point.point.position)));
-            point.finalAmount = (point.raycastPosition * point.distance) * forceSettings.forceMultiplier;
-
-
-            rb.AddForceAtPosition(point.finalAmount, point.raycastPosition, ForceMode2D.Force);
+            AddForce(point, forceSettings.forceMultiplier);
         }
+    }
+
+    public void AddForce(HoverboardPointData point, float forceMultiplier)
+    {
+        point.distance = Mathf.Abs(raycastSettings.maxDistance - (Vector2.Distance(point.raycastPosition, point.point.position)));
+        point.finalAmount = (point.raycastPosition * point.distance) * forceMultiplier;
+
+
+        rb.AddForceAtPosition(point.finalAmount, point.raycastPosition, ForceMode2D.Force);
     }
     
     private void OnDrawGizmosSelected() 
