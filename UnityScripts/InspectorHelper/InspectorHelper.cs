@@ -2,13 +2,9 @@
 // https://github.com/OlympianGames/UnityResources
 
 #if UNITY_EDITOR
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
-using System.IO;
 using UnityEditor;
-using UnityEngine.Events;
 
 public class InspectorHelper : Editor 
 {
