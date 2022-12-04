@@ -148,7 +148,8 @@ public class EditorSceneLoader : EditorWindow
 
     [MenuItem("Tools/Scene Loader/Get Scene Asset")]
     public static void GetSceneAssetMenuItem() { getSceneAsset.Invoke(); }
-
 }
 
 #endif
+
+}
