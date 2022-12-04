@@ -1,3 +1,6 @@
+// Made by OlympianGames
+// https://github.com/OlympianGames/UnityResources
+
 #if UNITY_EDITOR
 
 using UnityEditor;

@@ -1,9 +1,13 @@
+// Made by OlympianGames
+// https://github.com/OlympianGames/UnityResources
+
+#if UNITY_EDITOR
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEditor.SceneManagement;
 
 /// <summary>
@@ -51,7 +55,7 @@ public class EditorSceneLoader : EditorWindow
     /// </summary>
     private void ButtonsGUI()
     {
-        if(scenes.Count != 0)   
+        if(scenes.Count > 0)   
         {
             foreach (var item in scenes)
             {
@@ -144,6 +148,8 @@ public class EditorSceneLoader : EditorWindow
 
     [MenuItem("Tools/Scene Loader/Get Scene Asset")]
     public static void GetSceneAssetMenuItem() { getSceneAsset.Invoke(); }
+}
 
+#endif
 
 }
